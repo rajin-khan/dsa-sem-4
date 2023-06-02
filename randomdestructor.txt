@@ -1,0 +1,16 @@
+
+/*
+//desctructor is correct, but using it in the main gives segmentation fault for some reason.
+template <class T>
+linkedList<T>::~linkedList() {
+
+    node* temp; //a temporary pointer is initialized
+
+    while(temp!=NULL) { //until we reach the end,
+
+        temp = head; //temp gets assigned the value of the head pointer
+        head = head->next; //head iterates to the next node
+        delete temp; //the node at the temp pointer is delete (meaning the initial "head" is deleted)
+    }
+}
+*/

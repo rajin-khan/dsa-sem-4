@@ -1,0 +1,13 @@
+usually, every oop problem has
+
+one driver file for decalrations, (.h) //here, remember to make default constructors, parameterized constructors, and desctructors.
+one .cpp file for definition (.cpp)
+one driver file (main.cpp)
+
+use PascalCaseConvention for na,ing classes in cpp.
+
+for default constructors in cpp, no need to give parenthesis, so a1 is fine instead of a1();
+
+you take string input with:
+getline (cin, variablename);
+

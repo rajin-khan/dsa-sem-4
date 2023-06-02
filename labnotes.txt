@@ -1,0 +1,228 @@
+when considering complexity, we usually stick to larger values, as effeciency for smaller values may be confusing.
+
+
+
+
+
+
+
+//MEMORY LEAK
+
+say you have two variables, x and y
+
+ptr1 -> x (value of 2) //pointer 1 points to x
+ptr2 -> y (value of 5) //pointer 2 points to y
+
+now, if we update ptr2 to ptr1, like this:
+
+ptr2 = ptr1;
+
+now, ptr1, and ptr2 both point to x.
+
+now y remains, just there, memory wasted. this is called memory leak.
+
+to prevent this, we first delete ptr2 (we deallocate it).
+and then, we update ptr2 to ptr1.
+
+//DANGLING pointer
+a pointer that points to a memory location that has been deallocated.
+
+say, after everything in the memory leak code, we:
+
+delete ptr1; (deallocate it, meaning the address that ptr1 was pointing to is now nothing, x variable has been deleted)
+
+now, doing that would mean that ptr2 is now pointing to an address that has been deallocated, and this is called a dangling pointer (it's pointing to nothing).
+
+
+
+
+
+
+
+//TEMPLATES IN C++
+
+now, in c++, to save space, you can apply generics. i.e, use a template for a generic function.
+
+for example, say you have an add function:
+
+int add(int a, int b) {
+
+    return a + b;
+}
+
+float add(float a, float b) {
+
+    return a + b;
+}
+
+here, they are overloaded, but almost the same code is used twice. so, to save space, we use templates.
+
+so, instead of the above functions, we can use:
+
+template <typename T>
+T add(T a, T b) {
+
+    return a + b;
+}
+
+then, in main, we call it like this:
+
+    add<int>(3, 4);
+
+  
+
+for class templates, we do it like this:
+
+// declaration file - Rectangle.h 
+template <class T>
+class Rectangle {
+
+    private:
+        T length;
+        T width;
+
+    public:
+        Rectangle();
+        Rectangle(T, T);
+
+        void setLength(T);
+        void setWidth(T);
+
+        T getLength();
+        T getWidth();
+
+        void print();
+        T getArea();
+};
+
+// definition file - Rectangle.cpp 
+template <class T>
+Rectangle<T>::Rectangle() {
+
+    length = 1;
+    width = 1;
+}
+
+template <class T>
+Rectangle<T>::Rectangle(T l, T w) {
+
+    length = l;
+    width = w;
+}
+
+template <class T>
+void Rectangle<T>::setLength(T l) {
+
+    length = l;
+}
+
+template <class T>
+void Rectangle<T>::setWidth(T w) {
+
+    width = w; 
+}
+
+template <class T>
+T Rectangle<T>::getLength() {
+
+    return length;
+}
+
+template <class T>
+T Rectangle<T>::getWidth() {
+
+    return width; 
+}
+
+template <class T>
+void Rectangle<T>::print() {
+
+    cout << "length: " << length << ", width: " << width << endl;
+}
+
+template <class T>
+T Rectangle<T>::getArea() {
+
+    return (length * width);
+}
+
+
+// driver file - main.cpp  
+int main() {
+
+    // create object 1 
+    Rectangle<double> r1(4.2, 5.3);
+    
+    // print object 1's info 
+    r1.print();
+    cout<<"Area: " << r1.getArea() << endl;
+    
+    // create object 2 
+    Rectangle<int> r2(4, 5);
+    
+    // print object 2's info 
+    r2.print();
+    cout<<"Area: " << r2.getArea() << endl;
+    
+    return 0;
+}
+
+//for lab 3, index won't fall into templates
+
+also, for lab 3, convert everything from lab2 into template class types, including .h, .cpp (definition), and .cpp (driver) file.
+
+
+if you include iostream and namespace std on just the header file, and then inlcude the header file in the definition file,
+and then include that in the main file, you don't need to include iostream and namespace in the main driver file.
+
+
+
+
+
+
+
+STACKS AND QUEUES
+
+for stacks, delete at the end is very complex, so we insert at the beginning and delete at the beginning for linkedlist stack implementation.
+
+for queue, delete at the end is again very complex with linkedlist, so we insert at the end and delete at the beginning
+
+for array based implementation, we can just insert at the end and make the index of the top that
+and delete at the end too. (for stack)
+for queue in array, we'd just insert normally (at the end) and delete the 0 index always
+
+
+BALANCED PARENTHESIS (STACK QUEUE ARRAY BASED)
+
+if you find opening, not closing, stack isn't empty, which is incorrect
+
+if you find closing, not opening, that means we're doing pop on an empty stack. which is incorrect. (unsuccessful pop)
+make sure you check before popping whether the stack is empty, and if it is after pop is called, throw the parenthesis error
+
+
+
+
+//FOR A LINKEDLIST OR ANY ABSTRACT DATA TYPE,
+you need:
+
+- CONSTRUCTOR
+- TRANSFORMERS (to transform the list or data structure, eg, insert, delete, make empty, destructor)
+- OBSERVERS (retrieve, lengthis, isfull)
+- ITERATORS (getnext item, resetlist)
+
+in array based DSs, you don't really need to delete items, just change the values of the idnexes that indicate the items, that is enough.
+this is because if you change the index, you lose access. hence, you can just updated the indices ass you "delete" items and get away with it.
+
+
+
+IMP POINT, 
+
+you can use both dot and arrow with struct, but remember,
+if you use a pointer based instance of a struct, you need to use arrow, for example in the push function of c++ lab 10.
+conversely, if you just want to access members of a structure, but not through a pointer, you use a dot
+
+to convert from a character in string to integer, just subtract the ASCII of '0' from that character and you'll get that number.
+for example, if it is stored at the end of a string s,
+iterate through it using a for loop, 
+and to convert it into an int, do this: s[i]-'0'
+the resultant value is the actual number.

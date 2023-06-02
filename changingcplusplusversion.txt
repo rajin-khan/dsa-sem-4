@@ -1,0 +1,15 @@
+first, go to code runner, click on the gear icon, extension settings, then find the executor map json file
+
+find this line, and then replace the std line version with whatever c++ version you want.
+
+"code-runner.executorMap" : { "cpp" : "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt" }
+
+then, go to c/c++ extension, gear icon, extension settings, then in the search bar after everything type in cppstandard,
+then change the cppstandard to whatever you want as well.
+
+then, go to c_cpp_properties.json file (in the vscode folder),
+and change cppstandard to c++17.
+
+lastly, go to the tasks.json file, and in the args section, after the fdiagnostics line, before the -stdlib and -g line,
+change the -std=c++17 or whichever version you want.
+
