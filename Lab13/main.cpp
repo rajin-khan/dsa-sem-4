@@ -48,11 +48,11 @@ int main()
 
     if (found) {
 
-        cout << "Item is found";
+        cout << "Item is found" << endl;
     }
     else {
 
-        cout << "Item is not found";
+        cout << "Item is not found" << endl;
     }
 
     found = false;
@@ -62,11 +62,11 @@ int main()
 
     if (found) {
 
-        cout << "Item is found";
+        cout << "Item is found" << endl;
     }
     else {
 
-        cout << "Item is not found";
+        cout << "Item is not found" << endl;
     }
 
     bool finished = false;
@@ -74,5 +74,42 @@ int main()
 
     //complete the rest
 
+    t1.ResetTree(IN_ORDER);
+
+    while (finished!=true) {
+
+        t1.GetNextItem(output, IN_ORDER, finished);
+
+        cout << output << " ";
+    }
+
+    cout << endl;
+
+    finished = false;
+
+    t1.ResetTree(PRE_ORDER);
+
+    while (finished!=true) {
+
+        t1.GetNextItem(output, PRE_ORDER, finished);
+
+        cout << output << " ";
+    }
+
+    cout << endl;
+
+    finished = false;
+
+    t1.ResetTree(POST_ORDER);
+
+    while (finished!=true) {
+
+        t1.GetNextItem(output, POST_ORDER, finished);
+
+        cout << output << " ";
+    }
+
+    cout << endl;
+    
     return 0;
 }

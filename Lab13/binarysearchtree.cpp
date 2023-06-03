@@ -246,6 +246,7 @@ template <class ItemType>
 void TreeType<ItemType>::GetNextItem(ItemType& item, OrderType order, bool& finished) {
 
     finished = false;
+    
     switch (order) {
 
     case PRE_ORDER:
