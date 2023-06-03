@@ -72,8 +72,6 @@ int main()
     bool finished = false;
     int output;
 
-    //complete the rest
-
     t1.ResetTree(IN_ORDER);
 
     while (finished!=true) {
