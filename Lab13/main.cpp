@@ -5,9 +5,22 @@
 
 using namespace std;
 
-void insertInOrder(TreeType<int> tree, int item) {
+/*
+void insertInOrder(TreeType<int>& tree, int item) {
 
-    
+    int current;
+    bool found;
+
+    tree.GetNextItem(current, IN_ORDER, found);
+
+    if (!found || item<current) {
+
+        tree.InsertItem(item);
+    }
+    else {
+
+        insertInOrder(tree, item);
+    }
 }
 
 void minHeightTree(TreeType<int>& tree, int arr[], int start, int end) { 
@@ -26,6 +39,7 @@ void minHeightTree(TreeType<int>& tree, int arr[], int start, int end) {
     minHeightTree(tree, arr, start, midIndex-1);
     minHeightTree(tree, arr, midIndex+1, end);
 }
+*/
 
 int main()
 {
@@ -133,20 +147,25 @@ int main()
 
     t1.MakeEmpty();
 
-    int a1[10];
+    /*
+
+    int arr[10];
 
     for (int i=0; i<10; i++) {
 
-        cin >> a1[i];
+        cin >> arr[i];
     }
 
-    int size = sizeof(a1);
+    TreeType<int> bst;
+    int size = ArrayLength(arr) - 1;
 
-    TreeType<int> t2;
-
-    minHeightTree(t2, a1, 0, size-1);
-
+    // Build the balanced binary search tree
+    BuildBalancedBST(bst, arr, 0, size - 1);
     
+    // Print the optimized binary search tree
+    bst.Print();
     
+    */
+
     return 0;
 }
