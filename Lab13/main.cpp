@@ -5,6 +5,28 @@
 
 using namespace std;
 
+void insertInOrder(TreeType<int> tree, int item) {
+
+    
+}
+
+void minHeightTree(TreeType<int>& tree, int arr[], int start, int end) { 
+
+    if (start>end) {
+
+        return;
+    }
+
+    int midIndex = (start+end)/2;
+
+    int root = arr[midIndex];
+
+    insertInOrder(tree, root);
+
+    minHeightTree(tree, arr, start, midIndex-1);
+    minHeightTree(tree, arr, midIndex+1, end);
+}
+
 int main()
 {
     TreeType<int> t1;
@@ -108,6 +130,23 @@ int main()
     }
 
     cout << endl;
+
+    t1.MakeEmpty();
+
+    int a1[10];
+
+    for (int i=0; i<10; i++) {
+
+        cin >> a1[i];
+    }
+
+    int size = sizeof(a1);
+
+    TreeType<int> t2;
+
+    minHeightTree(t2, a1, 0, size-1);
+
+    
     
     return 0;
 }
