@@ -147,7 +147,7 @@ template <class ItemType> SortedType<ItemType>::~SortedType() {
 template <class ItemType>
 void SortedType<ItemType>::ResetList() {
 
-  currentPos = NULL;
+    currentPos = NULL;
 }
 
 template <class ItemType>
