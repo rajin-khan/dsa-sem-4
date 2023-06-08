@@ -4,8 +4,7 @@
 const int MAX_ITEMS = 5;
 
 template <class ItemType>
-class UnsortedType
-{
+class UnsortedType {
     public :
 
         UnsortedType();
