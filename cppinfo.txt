@@ -11,3 +11,8 @@ for default constructors in cpp, no need to give parenthesis, so a1 is fine inst
 you take string input with:
 getline (cin, variablename);
 
+although usually, before using getline, use cin.ignore() if you've used the input stream (cin) to take an integer or any other input before using getline.
+
+runtime can be made shorter with: 
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
