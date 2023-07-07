@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
+    
     DynArr<int> arr1;
     DynArr<int> arr2(5);
 
