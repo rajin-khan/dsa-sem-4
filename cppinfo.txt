@@ -16,3 +16,12 @@ although usually, before using getline, use cin.ignore() if you've used the inpu
 runtime can be made shorter with: 
 ios_base::sync_with_stdio(false);
 cin.tie(NULL);
+
+https://sceweb.sce.uhcl.edu/helm/WEBPAGE-Cpp/my_files/TableContents/Module-3/module3page.html
+for running c++ files in the command line, use:
+g++ -std=c++17 *filename.cpp*
+you can replace the std with any version of cpp you have installed a compiler of.
+then, it will generate an a.out file, which is the executable.
+then, you can do:
+./a.out
+and it will run in the terminal.
