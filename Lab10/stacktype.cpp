@@ -19,8 +19,10 @@ template <class ItemType>
 ItemType StackType<ItemType>::Top() {
 
     if (IsEmpty())
+
         throw EmptyStack();
     else
+    
         return topPtr->info;
 }
 
